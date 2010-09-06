@@ -1987,6 +1987,7 @@ abstract class Doctrine_Record extends Doctrine_Record_Abstract implements Count
                         $this->unlink($key, array(), false);
                         $this->link($key, $value, false);
                     } else {
+                        $this->state(Doctrine_Record::STATE_DIRTY);
                         $this->$key->fromArray($value, $deep);
                     }
                 }
